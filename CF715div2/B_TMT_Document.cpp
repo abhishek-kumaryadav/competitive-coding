@@ -54,9 +54,6 @@ double eps = 1e-12;
 #define all(x) (x).begin(), (x).end()
 #define sz(x) ((ll)(x).size())
 
-void solve()
-{
-}
 int main()
 {
     fast_cin();
@@ -66,35 +63,51 @@ int main()
     {
         int n;
         cin >> n;
-        int uv = 0;
-        int count = 0;
+        v32 arr;
+        int numm = 0;
+        v32 arrm;
         forn(i, n)
         {
-            int temp;
+            char temp;
             cin >> temp;
-            switch (temp)
-            {
-            case 1:
-                uv++, count++;
-                /* code */
-                break;
-            case 2:
-                uv--;
-                /* code */
-                break;
-            case 3:
-                if (uv >= 0)
-                    uv++, count++;
-                else
-                    uv--;
-                /* code */
-                break;
-
-            default:
-                break;
-            }
+            int a = int(temp);
+            if (a == 77)
+                numm++;
+            arrm.pb(numm);
+            arr.pb(a);
         }
-        cout << count << ln;
+        // # 84:T 77:M
+        int ms = n / 3;
+        if (numm == ms)
+        {
+            int i = 0, j = n - 1;
+            int flag = 0;
+            while (i < j && !flag)
+            {
+                while (arr[i] == 77)
+                    i++;
+                while (arr[j] == 77)
+                    j--;
+                if (i < j)
+                {
+                    if (arrm[j] - arrm[i] >= ms)
+                        ms--;
+                    else
+                        flag = 1;
+                }
+                i++;
+                j--;
+            }
+            cout << (flag ? "NO\n" : "YES\n");
+        }
+        else
+        {
+            cout << "NO\n";
+        }
+        // forn(i, n)
+        //         cout
+        //     << arr[i] << arrm[i];
+        // cout << ln;
     }
     return 0;
 }

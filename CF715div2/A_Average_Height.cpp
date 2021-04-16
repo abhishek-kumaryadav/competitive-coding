@@ -54,9 +54,6 @@ double eps = 1e-12;
 #define all(x) (x).begin(), (x).end()
 #define sz(x) ((ll)(x).size())
 
-void solve()
-{
-}
 int main()
 {
     fast_cin();
@@ -66,35 +63,23 @@ int main()
     {
         int n;
         cin >> n;
-        int uv = 0;
-        int count = 0;
+        v32 even;
+        v32 odd;
         forn(i, n)
         {
             int temp;
             cin >> temp;
-            switch (temp)
-            {
-            case 1:
-                uv++, count++;
-                /* code */
-                break;
-            case 2:
-                uv--;
-                /* code */
-                break;
-            case 3:
-                if (uv >= 0)
-                    uv++, count++;
-                else
-                    uv--;
-                /* code */
-                break;
-
-            default:
-                break;
-            }
+            if (temp & 1)
+                odd.pb(temp);
+            else
+                even.pb(temp);
         }
-        cout << count << ln;
+        for (auto i : even)
+            cout << i << " ";
+
+        for (auto i : odd)
+            cout << i << " ";
+        cout << ln;
     }
     return 0;
 }
