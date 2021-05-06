@@ -57,12 +57,9 @@ double eps = 1e-12;
 int main()
 {
     fast_cin();
-    ll t;
-    cin >> t;
-    for (int it = 1; it <= t; it++)
-    {
-        int n;
-        
-    }
+    int n, t;
+    cin >> n >> t;
+    string s;
+    cin >> s;
     return 0;
 }

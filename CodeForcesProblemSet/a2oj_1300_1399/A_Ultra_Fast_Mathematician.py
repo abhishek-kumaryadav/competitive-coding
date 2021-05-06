@@ -1,3 +1,7 @@
-from itertools import permutations
-
-print("hello")
+a = input()
+b = input()
+# string = "".join([x for x in a])
+string = "".join([str(int(x) ^ int(y)) for (x, y) in zip(a, b)])
+print(string)
+# print("{}".format(int(a, 2) | int(b, 2)))
+# print(b)

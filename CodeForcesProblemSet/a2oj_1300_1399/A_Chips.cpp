@@ -57,12 +57,21 @@ double eps = 1e-12;
 int main()
 {
     fast_cin();
-    ll t;
-    cin >> t;
-    for (int it = 1; it <= t; it++)
+    int n, m;
+    cin >> n >> m;
+    int onerot = n * (n + 1) / 2;
+    m = m % onerot;
+    forn(i, n)
     {
-        int n;
-        
+        if (m >= i + 1)
+        {
+            m -= i + 1;
+        }
+        else
+        {
+            cout << m;
+            break;
+        }
     }
     return 0;
 }

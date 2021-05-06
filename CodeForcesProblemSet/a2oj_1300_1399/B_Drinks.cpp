@@ -59,10 +59,14 @@ int main()
     fast_cin();
     ll t;
     cin >> t;
+    ll total = 0;
     for (int it = 1; it <= t; it++)
     {
-        int n;
-        
+        int temp;
+        cin >> temp;
+        total += temp;
     }
+    double d = total * 1.0 / t;
+    cout << setprecision(10) << d;
     return 0;
 }

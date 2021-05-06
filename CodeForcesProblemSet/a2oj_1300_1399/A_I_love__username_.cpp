@@ -59,10 +59,19 @@ int main()
     fast_cin();
     ll t;
     cin >> t;
-    for (int it = 1; it <= t; it++)
+    int maxx, minx;
+    cin >> maxx;
+    minx = maxx;
+    int count = 0;
+    for (int it = 2; it <= t; it++)
     {
-        int n;
-        
+        int temp;
+        cin >> temp;
+        if (temp > maxx)
+            count++, maxx = temp;
+        else if (temp < minx)
+            count++, minx = temp;
     }
+    cout << count;
     return 0;
 }

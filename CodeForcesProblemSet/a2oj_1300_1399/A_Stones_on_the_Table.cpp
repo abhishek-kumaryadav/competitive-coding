@@ -57,12 +57,25 @@ double eps = 1e-12;
 int main()
 {
     fast_cin();
-    ll t;
-    cin >> t;
-    for (int it = 1; it <= t; it++)
+    int n;
+    cin >> n;
+    string s;
+    cin >> s;
+
+    int len = s.size();
+    int count = 0;
+    for (int i = 0; i < len;)
     {
-        int n;
-        
+        // cout << s[i];
+        int curval = int(s[i]);
+        // cout << curval;
+        count++;
+        while (i < len && curval == int(s[i]))
+        {
+            // cout << int(s[i]);
+            i++;
+        }
     }
+    cout << (n - count);
     return 0;
 }

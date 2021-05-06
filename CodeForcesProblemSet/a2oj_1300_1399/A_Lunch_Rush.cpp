@@ -57,12 +57,19 @@ double eps = 1e-12;
 int main()
 {
     fast_cin();
-    ll t;
-    cin >> t;
-    for (int it = 1; it <= t; it++)
+    int n, k;
+    cin >> n >> k;
+    int maxjoy = -1000000000;
+    forn(i, n)
     {
-        int n;
-        
+        int f, t;
+        cin >> f >> t;
+        if (t > k)
+            maxjoy = max(maxjoy, f - (t - k));
+        else
+            maxjoy = max(maxjoy, f);
     }
+    cout << maxjoy;
+
     return 0;
 }

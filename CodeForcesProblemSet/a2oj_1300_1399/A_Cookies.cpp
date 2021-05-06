@@ -59,10 +59,21 @@ int main()
     fast_cin();
     ll t;
     cin >> t;
+    ll sum = 0;
+    v32 arr(t);
     for (int it = 1; it <= t; it++)
     {
-        int n;
-        
+        cin >> arr[it - 1];
+        sum += arr[it - 1];
     }
+    int count = 0;
+    forn(i, t)
+    {
+        if ((sum - arr[i]) % 2 == 0)
+        {
+            count++;
+        }
+    }
+    cout << count;
     return 0;
 }

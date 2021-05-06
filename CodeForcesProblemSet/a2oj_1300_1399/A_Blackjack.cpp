@@ -59,10 +59,14 @@ int main()
     fast_cin();
     ll t;
     cin >> t;
-    for (int it = 1; it <= t; it++)
-    {
-        int n;
-        
-    }
+
+    t = t - 10;
+    int out = 0;
+    if ((t > 0 && t <= 9) || t == 11)
+        out = 4;
+    else if (t == 10)
+        out = 15;
+    cout << out << ln;
+
     return 0;
 }
