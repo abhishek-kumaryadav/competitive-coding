@@ -63,22 +63,45 @@ int main()
     forn(i, n)
             cin >>
         arr[i];
-    ll addd = 0;
+    // ll yi = -1;
+    ll sum = 0;
     forn(i, m)
     {
-        ll x;
-        cin >> x;
-        switch (x)
+        int temp;
+        cin >> temp;
+        // map<int, vector<long long>> mapp;
+        // cout << temp << ln;
+        switch (temp)
         {
         case 1:
-            ll temp1, temp2;
-            cin >> temp1 >> temp2;
-
+        {
+            ll vi, xi;
+            cin >> vi >> xi;
+            arr[vi - 1] = xi - sum;
             break;
+        }
+        case 2:
+        { /* code */
+            ll yi;
+            cin >> yi;
+            sum += yi;
+            break;
+        }
+        case 3:
+        {
+            ll qi;
+            cin >> qi;
+            // cout << arr[qi - 1] + sum << ln;
+            printf("%u\n", arr[qi - 1] + sum);
+            // if (i != m - 1)
+            //     cout << ln;
+            break;
+        }
 
         default:
             break;
         }
+        // cout << ln;
     }
     return 0;
 }

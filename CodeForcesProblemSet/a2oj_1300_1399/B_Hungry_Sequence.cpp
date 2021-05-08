@@ -57,21 +57,11 @@ double eps = 1e-12;
 int main()
 {
     fast_cin();
-    ll t;
-    cin >> t;
-    for (int it = 1; it <= t; it++)
+    ll n;
+    cin >> n;
+    forn(i, n)
     {
-        ll a, b;
-        cin >> a >> b;
-
-        if (b != 1)
-        {
-            ll value = a * b * b;
-            cout << "YES\n"
-                 << a << " " << value - a << " " << value << ln;
-        }
-        else
-            cout << "NO\n";
+        cout << n + i + 1 << " ";
     }
     return 0;
 }

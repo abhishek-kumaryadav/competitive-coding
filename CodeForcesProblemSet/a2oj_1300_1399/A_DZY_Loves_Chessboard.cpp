@@ -57,21 +57,33 @@ double eps = 1e-12;
 int main()
 {
     fast_cin();
-    ll t;
-    cin >> t;
-    for (int it = 1; it <= t; it++)
+    ll n, m;
+    cin >> n >> m;
+    // string arr(n);
+    // int flag1 = 1;
+    forn(i, n)
     {
-        ll a, b;
-        cin >> a >> b;
-
-        if (b != 1)
+        string s;
+        cin >> s;
+        // 65
+        // int flag2 = flag1;
+        forn(j, m)
         {
-            ll value = a * b * b;
-            cout << "YES\n"
-                 << a << " " << value - a << " " << value << ln;
+            // switch (s[i])
+            // {
+            if (s[j] == '.')
+            {
+                if ((i + j) % 2)
+                    s[j] = 'W';
+                else
+                    s[j] = 'B';
+            }
+            // break;
+            // }
+            // flag2 ^= 1;
         }
-        else
-            cout << "NO\n";
+        cout << s << ln;
+        // flag1 ^= 1;
     }
     return 0;
 }

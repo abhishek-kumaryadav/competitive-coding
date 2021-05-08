@@ -59,19 +59,27 @@ int main()
     fast_cin();
     ll t;
     cin >> t;
-    for (int it = 1; it <= t; it++)
+    // v64 arr(t);
+    ll maxx, minx, maxc, minc;
+    maxx = maxc = minc = 0;
+    minx = 1e9 + 5;
+    forn(i, t)
     {
-        ll a, b;
-        cin >> a >> b;
-
-        if (b != 1)
-        {
-            ll value = a * b * b;
-            cout << "YES\n"
-                 << a << " " << value - a << " " << value << ln;
-        }
-        else
-            cout << "NO\n";
+        ll temp;
+        cin >> temp;
+        if (temp == minx)
+            minc++;
+        else if (temp < minx)
+            minx = temp, minc = 1;
+        if (temp == maxx)
+            maxc++;
+        else if (temp > maxx)
+            maxx = temp, maxc = 1;
     }
+    if (minx == maxx)
+        cout << "0 " << minc * (minc - 1) / 2;
+    else
+        cout << maxx - minx << " " << minc * maxc << ln;
+
     return 0;
 }
