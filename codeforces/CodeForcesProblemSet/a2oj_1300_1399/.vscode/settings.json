@@ -14,7 +14,14 @@
         "utility": "cpp",
         "valarray": "cpp",
         "atomic": "cpp",
-        "vector": "cpp"
+        "vector": "cpp",
+        "random": "cpp",
+        "*.tcc": "cpp",
+        "deque": "cpp",
+        "list": "cpp",
+        "string": "cpp",
+        "unordered_map": "cpp",
+        "unordered_set": "cpp"
     },
     "python.pythonPath": "/usr/bin/python"
 }
