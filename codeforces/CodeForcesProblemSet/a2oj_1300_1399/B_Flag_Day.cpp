@@ -59,16 +59,52 @@ int main()
     fast_cin();
     int n, m;
     cin >> n >> m;
-    int arr[m][3];
+    // int p1 = {-1,-1}, p2 = {-1,1}, p3 = -1;
+    // int arr[3][2] = {{-1, -1}, {-1, -1}, {-1, -1}};
+    // set<int> sett;
     map<int, int> mapp;
+    // set<int> prev;
     forn(i, m)
     {
-        // cin >> arr[i][0] >> arr[i][1] >> arr[i][2];
+        int inp[3];
+        // int flag[3] = {};
+
+        set<int> used;
+        int flag[3] = {};
         forn(j, 3)
         {
-            cin >> arr[i][j];
-            mapp[arr[i][j]]++;
+            cin >>
+                inp[j];
+            if (mapp[inp[j]] != 0)
+            {
+
+                flag[j] = 1;
+                used.insert(mapp[inp[j]]);
+                // setal[mapp[inp[j]] - 1] = 1;
+            }
         }
+        set<int> allset = {1, 2, 3};
+        set<int> unused;
+        set_difference(allset.begin(), allset.end(), used.begin(), used.end(), inserter(unused, unused.end()));
+        // for (auto j : unused)
+        //     cout << j << " ";
+        // cout << ln;
+        auto itr_unused = unused.begin();
+        // cout << (*itr_unused) << (*(++itr_unused));
+        forn(j, 3)
+        {
+            if (flag[j] != 1)
+            {
+                mapp[inp[j]] = *itr_unused;
+                itr_unused++;
+            }
+        }
+
+        // set<int> colors =
+    }
+    for (auto i : mapp)
+    {
+        cout << i.second << " ";
     }
 
     return 0;

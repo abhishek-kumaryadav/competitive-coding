@@ -54,46 +54,51 @@ double eps = 1e-12;
 #define all(x) (x).begin(), (x).end()
 #define sz(x) ((ll)(x).size())
 
-ll dfs(ll a, ll b)
-{
-    // cout << a << " " << b << ln;
-    ll out = 0;
-    ll zer = 0;
-    if (a == b)
-        return out;
-    if (a > b)
-    {
-        ll temp = a;
-        a = b;
-        b = temp;
-    }
-    ll inff = 1000000000;
-    ll temp1 = inff, temp2 = inff, temp3 = inff;
-    if (b % 2 == 0)
-        temp1 = dfs(a, b / 2);
-    if (b % 3 == 0)
-        temp2 = dfs(a, b / 3);
-    if (b % 5 == 0)
-        temp3 = dfs(a, b / 5);
-    // cout << temp1 << " " << temp2 << " " << temp3 << ln;
-    if ((temp1 == -1 || temp1 == inff) && (temp2 == -1 || temp2 == inff) && (temp3 == -1 || temp3 == inff))
-        return -1;
-    // else if (temp1 == 1000000000 && temp2 == 1000000000 && temp3 == 1000000000)
-    //     return -1;
-    else
-    {
-        ll minna = min(max(zer, temp1), max(zer, temp2));
-        minna = min(minna, max(zer, temp3));
-        return 1 + minna;
-        // return 1 + min(max(zer, temp1), max(zer, temp2));
-    }
-    // return 1 + min(dfs(a, ));
-}
 int main()
 {
     fast_cin();
     ll a, b;
     cin >> a >> b;
-    cout << dfs(a, b);
+    // cout << dfs(a, b);
+    int a2 = 0, a3 = 0, a5 = 0, b2 = 0, b3 = 0, b5 = 0;
+    while (a % 2 == 0)
+    {
+        a /= 2;
+        a2++;
+    }
+    while (a % 3 == 0)
+    {
+        a /= 3;
+        a3++;
+    }
+    while (a % 5 == 0)
+    {
+        a /= 5;
+        a5++;
+    }
+    while (b % 2 == 0)
+    {
+        b /= 2;
+        b2++;
+    }
+    while (b % 3 == 0)
+    {
+        b /= 3;
+        b3++;
+    }
+    while (b % 5 == 0)
+    {
+        b /= 5;
+        b5++;
+    }
+    if (a == b)
+    {
+        cout << abs(a2 - b2) + abs(a3 - b3) + abs(a5 - b5);
+    }
+    else
+    {
+        cout << "-1";
+    }
+
     return 0;
 }
