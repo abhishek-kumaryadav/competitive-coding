@@ -1,0 +1,11 @@
+{
+    "files.associations": {
+        "bitset": "cpp",
+        "*.tcc": "cpp",
+        "list": "cpp",
+        "iomanip": "cpp",
+        "ranges": "cpp"
+    },
+    "fileheader.Author": "abhk943",
+    "fileheader.LastModifiedBy": "abhk943"
+}
