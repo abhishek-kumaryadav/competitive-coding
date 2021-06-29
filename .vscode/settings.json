@@ -13,6 +13,17 @@
         "regex": "cpp",
         "utility": "cpp",
         "valarray": "cpp",
-        "random": "cpp"
+        "random": "cpp",
+        "iostream": "cpp",
+        "*.tcc": "cpp",
+        "string": "cpp",
+        "unordered_map": "cpp",
+        "unordered_set": "cpp",
+        "deque": "cpp",
+        "forward_list": "cpp",
+        "list": "cpp",
+        "vector": "cpp",
+        "any": "cpp",
+        "system_error": "cpp"
     }
 }

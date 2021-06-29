@@ -27,8 +27,20 @@ mod = 1000000007
 def main():
     n = int_r()
     # print(func(n))
-    arr = [1, 2, 4, 8, 16, 32]
-    
+    arr = [0, 1, 2, 4, 8, 16, 32]
+    if n <= 6:
+        print(arr[n])
+    else:
+        summ = sum(arr)
+        arr.append(summ)
+        for i in range(8, n + 1):
+            # print(arr[i - 1], arr[i - 7])
+            out = (arr[i - 1] * 2 - arr[i - 7]) % mod
+            arr.append(out)
+            # arr.append(summ)
+        print(arr[n])
+        # print(arr[n])
+
 
 if __name__ == "__main__":
     main()

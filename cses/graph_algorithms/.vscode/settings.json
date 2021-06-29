@@ -1,0 +1,20 @@
+{
+    "files.associations": {
+        "tuple": "cpp",
+        "iterator": "cpp",
+        "deque": "cpp",
+        "list": "cpp",
+        "string": "cpp",
+        "vector": "cpp",
+        "array": "cpp",
+        "any": "cpp",
+        "string_view": "cpp",
+        "ranges": "cpp",
+        "span": "cpp",
+        "regex": "cpp",
+        "iostream": "cpp",
+        "*.tcc": "cpp",
+        "forward_list": "cpp",
+        "valarray": "cpp"
+    }
+}
