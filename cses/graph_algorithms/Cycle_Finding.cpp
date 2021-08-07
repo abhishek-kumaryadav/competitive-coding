@@ -62,57 +62,15 @@ double eps = 1e-12;
     cout.tie(NULL)
 // #define all(x) (x).begin(), (x).end()
 // #define sz(x) ((ll)(x).size())
-int n, m, k;
-vector<vector<ll>> out;
-vector<vp64> g;
+ll n, m;
 int main()
 {
     fast_cin();
-    cin >> n >> m >> k;
-    out.resize(n + 1, vector<ll>(k, INF));
-    g.resize(n + 1);
-    forn(i, m)
+    cin >> n >> m;
+    for (int it = 1; it <= t; it++)
     {
-        ll a, b, c;
-        cin >> a >> b >> c;
-        g[a].push_back({b, c});
+        ll n;
+        cin >> n;
     }
-    priority_queue<pair<ll, ll>, vp64, greater<p64>> pq;
-    pq.push({0, 1});
-    while (!pq.empty())
-    {
-        ll u = pq.top().second;
-        ll d = pq.top().first;
-        pq.pop();
-        if (out[u][k - 1] < d)
-            continue;
-        for (auto it : g[u])
-        {
-            ll v = it.first;
-            ll c = it.second;
-            if (out[v][k - 1] > c + d)
-            {
-                out[v][k - 1] = c + d;
-                pq.push({out[v][k - 1], v});
-                sort(all(out[v]));
-            }
-        }
-    }
-    forn(i, k)
-            cout
-        << out[n][i] << " ";
-    // forn(i, n)
-    // {
-    //     forn(j, k)
-    //             cout
-    //         << out[i + 1][j];
-    //     cout << ln;
-    // }
-    // forn(i, n)
-    // {
-    //     cout << i + 1 << ln;
-    //     for (auto it : g[i + 1])
-    //         cout << "   " << it.first << it.second << ln;
-    // }
     return 0;
 }

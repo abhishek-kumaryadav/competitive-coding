@@ -62,57 +62,56 @@ double eps = 1e-12;
     cout.tie(NULL)
 // #define all(x) (x).begin(), (x).end()
 // #define sz(x) ((ll)(x).size())
-int n, m, k;
-vector<vector<ll>> out;
-vector<vp64> g;
+
 int main()
 {
     fast_cin();
-    cin >> n >> m >> k;
-    out.resize(n + 1, vector<ll>(k, INF));
-    g.resize(n + 1);
-    forn(i, m)
+    ll t;
+    cin >> t;
+    while (t--)
     {
-        ll a, b, c;
-        cin >> a >> b >> c;
-        g[a].push_back({b, c});
-    }
-    priority_queue<pair<ll, ll>, vp64, greater<p64>> pq;
-    pq.push({0, 1});
-    while (!pq.empty())
-    {
-        ll u = pq.top().second;
-        ll d = pq.top().first;
-        pq.pop();
-        if (out[u][k - 1] < d)
-            continue;
-        for (auto it : g[u])
+        int n;
+        cin >> n;
+        vector<vector<int>> arr;
+        forn(i, n)
         {
-            ll v = it.first;
-            ll c = it.second;
-            if (out[v][k - 1] > c + d)
+            int sz;
+            cin >> sz;
+            vector<int> temp;
+            forn(j, sz)
             {
-                out[v][k - 1] = c + d;
-                pq.push({out[v][k - 1], v});
-                sort(all(out[v]));
+                int temp1;
+                cin >> temp1;
+                temp.pb(temp1);
             }
+            arr.pb(temp);
         }
+        // solve
+        vector<int> split_sizes;
+        ll cost = 0;
+        forn(i, n)
+        {
+
+            int sz = arr[i].size();
+            ll temp_min = INF;
+            forn(j, arr[i].size())
+            {
+                ll tempsize = 1;
+                while (j < sz - 1 && arr[i][j] == arr[i][j + 1])
+                {
+                    tempsize++;
+                    j++;
+                }
+                temp_min = min(temp_min, tempsize);
+                split_sizes.pb(tempsize);
+                if (j == sz - 1)
+                    break;
+            }
+            cost += temp_min;
+        }
+        forn(i, split_sizes.size())
+                cout
+            << split_sizes[i] << ln;
     }
-    forn(i, k)
-            cout
-        << out[n][i] << " ";
-    // forn(i, n)
-    // {
-    //     forn(j, k)
-    //             cout
-    //         << out[i + 1][j];
-    //     cout << ln;
-    // }
-    // forn(i, n)
-    // {
-    //     cout << i + 1 << ln;
-    //     for (auto it : g[i + 1])
-    //         cout << "   " << it.first << it.second << ln;
-    // }
     return 0;
 }

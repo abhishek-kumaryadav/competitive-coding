@@ -15,6 +15,7 @@
         "iostream": "cpp",
         "*.tcc": "cpp",
         "forward_list": "cpp",
-        "valarray": "cpp"
+        "valarray": "cpp",
+        "random": "cpp"
     }
 }

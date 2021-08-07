@@ -62,57 +62,71 @@ double eps = 1e-12;
     cout.tie(NULL)
 // #define all(x) (x).begin(), (x).end()
 // #define sz(x) ((ll)(x).size())
-int n, m, k;
-vector<vector<ll>> out;
-vector<vp64> g;
+bool isPrime(int n)
+{
+    // Corner cases
+    if (n <= 1)
+        return false;
+    if (n <= 3)
+        return true;
+
+    // This is checked so that we can skip
+    // middle five numbers in below loop
+    if (n % 2 == 0 || n % 3 == 0)
+        return false;
+
+    for (int i = 5; i * i <= n; i = i + 6)
+        if (n % i == 0 || n % (i + 2) == 0)
+            return false;
+
+    return true;
+}
+int gcd(int a, int b)
+{
+    if (b == 0)
+        return a;
+    return gcd(b, a % b);
+}
 int main()
 {
     fast_cin();
-    cin >> n >> m >> k;
-    out.resize(n + 1, vector<ll>(k, INF));
-    g.resize(n + 1);
-    forn(i, m)
+    ll t;
+    cin >> t;
+    for (int it = 1; it <= t; it++)
     {
-        ll a, b, c;
-        cin >> a >> b >> c;
-        g[a].push_back({b, c});
-    }
-    priority_queue<pair<ll, ll>, vp64, greater<p64>> pq;
-    pq.push({0, 1});
-    while (!pq.empty())
-    {
-        ll u = pq.top().second;
-        ll d = pq.top().first;
-        pq.pop();
-        if (out[u][k - 1] < d)
-            continue;
-        for (auto it : g[u])
+        ll x, y;
+        cin >> x >> y;
+        bool a1 = isPrime(x);
+        bool a2 = isPrime(y);
+        if (a1 && a2)
+            cout << 2 << ln;
+        else if (a1)
         {
-            ll v = it.first;
-            ll c = it.second;
-            if (out[v][k - 1] > c + d)
+            if (gcd(x + 1, y) > 1)
             {
-                out[v][k - 1] = c + d;
-                pq.push({out[v][k - 1], v});
-                sort(all(out[v]));
+                cout << 1 << ln;
             }
+            else
+                cout << 2 << ln;
+        }
+        else if (a2)
+        {
+
+            if (gcd(x, y + 1) > 1)
+            {
+                cout << 1 << ln;
+            }
+            else
+                cout << 2 << ln;
+        }
+        else if (gcd(x, y) > 1)
+        {
+            cout << 0 << ln;
+        }
+        else
+        {
+            cout << 1 << ln;
         }
     }
-    forn(i, k)
-            cout
-        << out[n][i] << " ";
-    // forn(i, n)
-    // {
-    //     forn(j, k)
-    //             cout
-    //         << out[i + 1][j];
-    //     cout << ln;
-    // }
-    // forn(i, n)
-    // {
-    //     cout << i + 1 << ln;
-    //     for (auto it : g[i + 1])
-    //         cout << "   " << it.first << it.second << ln;
-    // }
     return 0;
 }
